@@ -1,8 +1,21 @@
 /* styles.css */
 
+/* Centered image with padding and responsive design */
+.question-image {
+    display: block;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* Body background color */
 body {
     background-color: #f4f4f4; /* Light gray */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
 }
 
 /* Header styling */
@@ -22,8 +35,9 @@ main {
 footer {
     background-color: #2c3e50; /* Dark blue */
     color: #fff; /* White text */
-    padding: 10px;
+    padding: 20px;
     text-align: center;
+    margin-top: auto; /* Push footer to the bottom */
 }
 
 /* Button styling */
@@ -71,4 +85,17 @@ button:hover {
 
 .quiz-button:hover {
     background-color: #8b9b83; /* Dark green */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .question-container {
+        padding: 10px;
+    }
+    /* Adjustments for smaller buttons */
+    .quiz-button {
+        padding: 8px 16px;
+        margin: 8px;
+    }
 }

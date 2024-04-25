@@ -27,7 +27,7 @@ const questions = [
         answer: "Glamdring"
     },
     {
-        question: "Who is the ruler of Rohan during the War of the Ring?",
+        question: "Who is the ruler of Rohan?",
         options: ["Théoden", "Théodred", "Éowyn", "Éomer"],
         answer: "Théoden"
     },
@@ -52,7 +52,7 @@ const questions = [
         answer: "Andúril"
     },
     {
-        question: "Where is the entrance to Mordor located?",
+        question: "where do Frodo need to go to destroy the one ring?",
         options: ["Minas Tirith", "Rivendell", "Lothlórien", "Mount Doom"],
         answer: "Mount Doom"
     },
@@ -92,10 +92,16 @@ function startQuiz() {
     displayQuestion();
 }
 
+
 // Function to display the current question
 function displayQuestion() {
     const question = questions[currentQuestionIndex];
     questionElement.innerText = question.question;
+
+    // Set the image source based on the current question index
+    const questionImage = document.getElementById('question-image');
+    questionImage.src = `assets/images/question${currentQuestionIndex + 1}.jpg`;
+
     optionButtons.forEach((button, index) => {
         button.innerText = question.options[index];
         button.classList.remove('correct');
@@ -130,22 +136,4 @@ function endQuiz() {
     optionButtons.forEach(button => button.style.display = 'none');
     feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
 }
-
-
-    
-
-        
-        // Set the image source based on the current question index
-        const questionImage = document.getElementById('question-image');
-        questionImage.src = 'assets/images/question1.jpg';
-
-        
-        optionButtons.forEach((button, index) => {
-            button.innerText = question.options[index];
-            button.classList.remove('correct');
-            button.classList.remove('incorrect');
-        });
-        feedbackElement.innerText = '';
-    
-    
 
