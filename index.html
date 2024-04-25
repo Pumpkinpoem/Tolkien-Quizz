@@ -9,19 +9,22 @@
 <body>
     <header>
         <h1>Tolkien Quiz</h1>
-        <!-- User information section (username, score, etc.) -->
     </header>
 
     <main>
-        <div class="button-container">
-            <div class="button-container">
-                <button class="quiz-button" onclick="checkAnswer(1)">Option 1</button>
-                <button class="quiz-button" onclick="checkAnswer(2)">Option 2</button>
-                <button class="quiz-button" onclick="checkAnswer(3)">Option 3</button>
-                <button class="quiz-button" onclick="checkAnswer(4)">Option 4</button>
+        <div class="question-container" id="question-container">
+            <p id="question"></p>
+            <div class="button-container" id="options">
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
+                <button class="option"></button>
             </div>
         </div>
+        <button id="next-btn">Next</button>
         <p id="feedback"></p>
+        <p id="score"></p>
+        <img id="question-image" src="" alt="Question Image">
     </main>
 
     <footer>
