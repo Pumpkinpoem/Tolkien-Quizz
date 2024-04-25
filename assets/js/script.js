@@ -4,6 +4,7 @@ const optionButtons = document.getElementById('options').querySelectorAll('.opti
 const nextButton = document.getElementById('next-btn');
 const feedbackElement = document.getElementById('feedback');
 const scoreElement = document.getElementById('score');
+const funFactElement = document.getElementById('fun-fact');
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -13,18 +14,21 @@ const questions = [
     {
         question: "What is the capital of Gondor?",
         options: ["Minas Tirith", "Rohan", "Osgiliath", "Gondor City"],
-        answer: "Minas Tirith"
+        answer: "Minas Tirith",
+        funFact: "Minas Tirith is also known as the White City and the City of Kings."
         
     },
     {
         question: "Who is Frodo's uncle?",
         options: ["Gandalf", "Saruman", "Bilbo Baggins", "Samwise Gamgee"],
-        answer: "Bilbo Baggins"
+        answer: "Bilbo Baggins",
+        funFact: "Bilbo Baggins is a central character in 'The Hobbit' and 'The Lord of the Rings' series."
     },
     {
         question: "What is the name of Gandalf's sword?",
         options: ["Sting", "Glamdring", "Andúril", "Narsil"],
-        answer: "Glamdring"
+        answer: "Glamdring",
+        funFact: "Glamdring was forged by the elves of Gondolin in the First Age."
     },
     {
         question: "Who is the ruler of Rohan?",
@@ -81,7 +85,11 @@ nextButton.addEventListener('click', () => {
     } else {
         endQuiz();
     }
+    
+    // Clear the fun fact
+    funFactElement.innerText = '';
 });
+
 
 // Function to start the quiz
 function startQuiz() {
@@ -128,6 +136,10 @@ function checkAnswer(answer) {
         }
     });
     nextButton.style.display = 'block';
+
+    // Display fun fact
+    const funFact = questions[currentQuestionIndex].funFact;
+    funFactElement.innerText = funFact;
 }
 
 // Function to end the quiz

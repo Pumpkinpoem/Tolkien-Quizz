@@ -12,16 +12,21 @@
 
 /* Body background color */
 body {
-    background-color: #f4f4f4; /* Light gray */
+    background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+    min-height: 100vh;
+}
+
+body, h1, p, button {
+    font-family: 'Sedan', sans-serif;
+    font-weight: bold;
 }
 
 /* Header styling */
 header {
-    background-color: #2c3e50; /* Dark blue */
-    color: #fff; /* White text */
+    background-color: #2c3e50;
+    color: #fff; 
     padding: 20px;
     text-align: center;
 }
@@ -33,17 +38,29 @@ main {
 
 /* Footer styling */
 footer {
-    background-color: #2c3e50; /* Dark blue */
-    color: #fff; /* White text */
+    background-color: #2c3e50; 
+    color: #fff; 
     padding: 20px;
     text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto;
 }
+
+/* Footer link styling */
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer link hover effect */
+footer a:hover {
+    color: #c5a47e;
+}
+
 
 /* Button styling */
 button {
-    background-color: #c5a47e; /* Gold */
-    color: #fff; /* White text */
+    background-color: #c5a47e; 
+    color: #fff; 
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -52,16 +69,16 @@ button {
 }
 
 button:hover {
-    background-color: #8b9b83; /* Dark green */
+    background-color: #8b9b83; 
 }
 
 /* Question and answer container */
 .question-container {
-    background-color: #fff; /* White */
+    background-color: #fff; 
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 /* Button container */
@@ -73,8 +90,8 @@ button:hover {
 
 /* Quiz button styling */
 .quiz-button {
-    background-color: #c5a47e; /* Gold */
-    color: #fff; /* White text */
+    background-color: #c5a47e; 
+    color: #fff; 
     border: none;
     padding: 10px 20px;
     margin: 10px;
@@ -84,7 +101,7 @@ button:hover {
 }
 
 .quiz-button:hover {
-    background-color: #8b9b83; /* Dark green */
+    background-color: #8b9b83; 
 }
 
 /* Media query for smaller screens */
