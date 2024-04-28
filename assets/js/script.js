@@ -4,10 +4,10 @@ const optionButtons = document.getElementById('options').querySelectorAll('.opti
 const nextButton = document.getElementById('next-btn');
 const feedbackElement = document.getElementById('feedback');
 const scoreElement = document.getElementById('score');
-const funFactElement = document.getElementById('fun-fact');
 
 let currentQuestionIndex = 0;
 let score = 0;
+let answerSelected = false;
 
 // Quiz data
 const questions = [
@@ -33,39 +33,47 @@ const questions = [
     {
         question: "Who is the ruler of Rohan?",
         options: ["Théoden", "Théodred", "Éowyn", "Éomer"],
-        answer: "Théoden"
+        answer: "Théoden",
+        funFact: "Théoden, son of Thengel, was the seventeenth King of Rohan, ruling for many years."
     },
     {
         question: "What creature is Gollum?",
         options: ["Hobbit", "Elf", "Dwarf", "Hobgoblin"],
-        answer: "Hobbit"
+        answer: "Hobbit",
+        funFact: "Gollum, originally known as Sméagol, was a hobbit-like creature corrupted by the power of the One Ring."
     },
     {
         question: "Who created the One Ring?",
         options: ["Saruman", "Galadriel", "Elrond", "Sauron"],
-        answer: "Sauron"
+        answer: "Sauron",
+        funFact: "The One Ring was forged by the Dark Lord Sauron in the fires of Mount Doom."
     },
     {
         question: "What is the name of the elf who aids Frodo when he almost died?",
         options: ["Legolas", "Gimli", "Arwen", "Galadriel"],
-        answer: "Arwen"
+        answer: "Arwen",
+        funFact: "Arwen Evenstar, daughter of Elrond, was an elf who played a crucial role in the events of the War of the Ring."
     },
     {
         question: "What is the name of Aragorn's sword?",
         options: ["Sting", "Andúril", "Glamdring", "Narsil"],
-        answer: "Andúril"
+        answer: "Andúril",
+        funFact: "Andúril, also known as the Flame of the West, was reforged from the shards of Narsil and wielded by Aragorn as the rightful King of Gondor."
     },
     {
-        question: "where do Frodo need to go to destroy the one ring?",
+        question: "Where do Frodo need to go to destroy the one ring?",
         options: ["Minas Tirith", "Rivendell", "Lothlórien", "Mount Doom"],
-        answer: "Mount Doom"
+        answer: "Mount Doom",
+        funFact: "Mount Doom, located within the volcanic region of Mordor, was the only place where the One Ring could be destroyed."
     },
     {
         question: "Who said: 'One does not simply walk into Mordor'?",
         options: ["Gandalf", "Aragorn", "Boromir", "Frodo"],
-        answer: "Boromir"
+        answer: "Boromir",
+        funFact: "Boromir, son of Denethor, was a valiant warrior from Gondor who accompanied the Fellowship of the Ring on their journey."
     }
 ];
+
 
 // Start the quiz
 startQuiz();
@@ -73,23 +81,25 @@ startQuiz();
 // Event listeners for option buttons
 optionButtons.forEach(button => {
     button.addEventListener('click', () => {
-        checkAnswer(button.textContent);
+        if (!answerSelected) { // Check if an answer has already been selected
+            answerSelected = true; // Set answerSelected to true
+            checkAnswer(button.textContent);
+        }
     });
 });
 
 // Event listener for next button
 nextButton.addEventListener('click', () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion();
-    } else {
-        endQuiz();
+    if (answerSelected) { // Check if an answer has been selected
+        answerSelected = false; // Reset answerSelected to false
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            endQuiz();
+        }
     }
-    
-    // Clear the fun fact
-    funFactElement.innerText = '';
 });
-
 
 // Function to start the quiz
 function startQuiz() {
@@ -136,10 +146,6 @@ function checkAnswer(answer) {
         }
     });
     nextButton.style.display = 'block';
-
-    // Display fun fact
-    const funFact = questions[currentQuestionIndex].funFact;
-    funFactElement.innerText = funFact;
 }
 
 // Function to end the quiz
@@ -148,4 +154,3 @@ function endQuiz() {
     optionButtons.forEach(button => button.style.display = 'none');
     feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
 }
-
