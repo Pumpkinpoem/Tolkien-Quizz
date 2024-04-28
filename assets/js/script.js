@@ -17,7 +17,7 @@ const questions = [
         options: ["Minas Tirith", "Rohan", "Osgiliath", "Gondor City"],
         answer: "Minas Tirith",
         funFact: "Minas Tirith is also known as the White City and the City of Kings."
-        
+
     },
     {
         question: "Who is Frodo's uncle?",
@@ -164,13 +164,21 @@ function endQuiz() {
     questionElement.innerText = 'Quiz completed!';
     optionButtons.forEach(button => button.style.display = 'none');
     feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
+    document.getElementById('completion-gif').classList.remove('hidden');
+    document.getElementById('question-container').style.display = 'none';
+    document.getElementById('options').style.display = 'none';
+    document.getElementById('fun-fact-container').style.display = 'none';
+    // Hide the image element
+    document.getElementById('question-image').style.display = 'none';
+    // Show the completion GIF container
+    document.getElementById('completion-gif-container').classList.remove('hidden');
 }
 
 // Select the feedback form
 const feedbackForm = document.getElementById('feedback-form');
 
 // Add event listener for form submission
-feedbackForm.addEventListener('submit', function(event) {
+feedbackForm.addEventListener('submit', function (event) {
     // Prevent the default form submission behavior
     event.preventDefault();
 
@@ -180,3 +188,4 @@ feedbackForm.addEventListener('submit', function(event) {
     // Redirect to the thank you page
     window.location.href = 'thankyou.html';
 });
+

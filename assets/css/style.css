@@ -1,5 +1,17 @@
 /* styles.css */
 
+/* hidden gif */
+.hidden {
+    display: none;
+}
+
+#completion-gif-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
 /* Centered image with padding and responsive design */
 .question-image {
     display: block;
