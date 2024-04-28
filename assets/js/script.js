@@ -4,6 +4,7 @@ const optionButtons = document.getElementById('options').querySelectorAll('.opti
 const nextButton = document.getElementById('next-btn');
 const feedbackElement = document.getElementById('feedback');
 const scoreElement = document.getElementById('score');
+const funFactElement = document.getElementById('fun-fact');
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -74,6 +75,12 @@ const questions = [
     }
 ];
 
+// feedback button
+const feedbackButton = document.getElementById('feedback-btn');
+feedbackButton.addEventListener('click', () => {
+    window.location.href = 'feedback.html';
+});
+
 
 // Start the quiz
 startQuiz();
@@ -87,6 +94,7 @@ optionButtons.forEach(button => {
         }
     });
 });
+
 
 // Event listener for next button
 nextButton.addEventListener('click', () => {
@@ -126,6 +134,7 @@ function displayQuestion() {
         button.classList.remove('incorrect');
     });
     feedbackElement.innerText = '';
+    funFactElement.innerText = ''; // Clear the fun fact
 }
 
 // Function to check the answer
@@ -138,6 +147,8 @@ function checkAnswer(answer) {
     } else {
         feedbackElement.innerText = `Incorrect. The correct answer is "${correctAnswer}".`;
     }
+    // Display the fun fact
+    funFactElement.innerText = questions[currentQuestionIndex].funFact;
     optionButtons.forEach(button => {
         if (button.textContent === correctAnswer) {
             button.classList.add('correct');
@@ -154,3 +165,18 @@ function endQuiz() {
     optionButtons.forEach(button => button.style.display = 'none');
     feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
 }
+
+// Select the feedback form
+const feedbackForm = document.getElementById('feedback-form');
+
+// Add event listener for form submission
+feedbackForm.addEventListener('submit', function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Log to console to verify that the event listener is firing
+    console.log('Form submitted');
+
+    // Redirect to the thank you page
+    window.location.href = 'thankyou.html';
+});
