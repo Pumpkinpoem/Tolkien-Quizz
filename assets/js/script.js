@@ -1,3 +1,4 @@
+// Constants and Variables
 const questionContainer = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const optionButtons = document.getElementById('options').querySelectorAll('.option');
@@ -75,12 +76,11 @@ const questions = [
     }
 ];
 
-// feedback button
+// Feedback button
 const feedbackButton = document.getElementById('feedback-btn');
 feedbackButton.addEventListener('click', () => {
     window.location.href = 'feedback.html';
 });
-
 
 // Start the quiz
 startQuiz();
@@ -88,18 +88,17 @@ startQuiz();
 // Event listeners for option buttons
 optionButtons.forEach(button => {
     button.addEventListener('click', () => {
-        if (!answerSelected) { // Check if an answer has already been selected
-            answerSelected = true; // Set answerSelected to true
+        if (!answerSelected) {
+            answerSelected = true;
             checkAnswer(button.textContent);
         }
     });
 });
 
-
 // Event listener for next button
 nextButton.addEventListener('click', () => {
-    if (answerSelected) { // Check if an answer has been selected
-        answerSelected = false; // Reset answerSelected to false
+    if (answerSelected) {
+        answerSelected = false;
         currentQuestionIndex++;
         if (currentQuestionIndex < questions.length) {
             displayQuestion();
@@ -118,7 +117,6 @@ function startQuiz() {
     displayQuestion();
 }
 
-
 // Function to display the current question
 function displayQuestion() {
     const question = questions[currentQuestionIndex];
@@ -134,7 +132,7 @@ function displayQuestion() {
         button.classList.remove('incorrect');
     });
     feedbackElement.innerText = '';
-    funFactElement.innerText = ''; // Clear the fun fact
+    funFactElement.innerText = '';
 }
 
 // Function to check the answer
@@ -147,7 +145,6 @@ function checkAnswer(answer) {
     } else {
         feedbackElement.innerText = `Incorrect. The correct answer is "${correctAnswer}".`;
     }
-    // Display the fun fact
     funFactElement.innerText = questions[currentQuestionIndex].funFact;
     optionButtons.forEach(button => {
         if (button.textContent === correctAnswer) {
@@ -168,24 +165,15 @@ function endQuiz() {
     document.getElementById('question-container').style.display = 'none';
     document.getElementById('options').style.display = 'none';
     document.getElementById('fun-fact-container').style.display = 'none';
-    // Hide the image element
     document.getElementById('question-image').style.display = 'none';
-    // Show the completion GIF container
     document.getElementById('completion-gif-container').classList.remove('hidden');
 }
 
 // Select the feedback form
 const feedbackForm = document.getElementById('feedback-form');
 
-// Add event listener for form submission
+// Event listener for form submission
 feedbackForm.addEventListener('submit', function (event) {
-    // Prevent the default form submission behavior
     event.preventDefault();
-
-    // Log to console to verify that the event listener is firing
-    console.log('Form submitted');
-
-    // Redirect to the thank you page
     window.location.href = 'thankyou.html';
 });
-
