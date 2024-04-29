@@ -2,7 +2,7 @@
 
 [Tolkien Quiz](https://pumpkinpoem.github.io/Tolkien-Quizz/) is a description of your project. Add a brief overview here to introduce what your project is about.
 
-![Responsive Mockup](path/to/your/mockup/image.PNG)
+![Responsive Mockup](assets/readme/responsive.png)
 
 ## Description
 
@@ -15,22 +15,17 @@ Welcome to Tolkien Quiz, the ultimate trivia experience for fans of J.R.R. Tolki
   - Featured on all pages, the fully responsive navigation bar includes links to the Home page and Feedback page. It is consistent across all pages to ensure easy navigation.
   - This section enables users to navigate seamlessly across all devices without needing to rely on the back button.
 
-![Navigation Bar](assets/images/readme/navbar.PNG)
+![Navigation Bar](assets/readme/header.png)
 
 - **Feedback:**
   - Allows users to sign up for One Dice's email list and choose a welcome gift from two options of dice sets.
 
-![Feedback](assets/images/readme/signup.PNG)
-
-- **Confirmation Page:**
-  - Displays a confirmation message when users successfully submit their information on the sign-up form.
-
-![Confirmation Page](assets/images/readme/confirmation.PNG)
+![Feedback](assets/readme/feedback.png)
 
 - **Footer:**
   - The footer section includes links to One Dice's social media profiles, allowing users to connect with the cafe on various platforms.
 
-![Footer Section](assets/images/readme/footer.PNG)
+![Footer Section](assets/readme/footer.png)
 
 
 ## Visual Features
