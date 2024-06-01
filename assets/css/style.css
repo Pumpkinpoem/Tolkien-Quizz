@@ -87,7 +87,9 @@ footer {
 
 /* Social media icons */
 .social-media {
-    margin-top: 20px;
+    display: flex;
+    padding: 2px;
+    justify-content: center;
 }
 
 .social-media a {
