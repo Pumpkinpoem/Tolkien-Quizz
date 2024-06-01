@@ -1,129 +1,179 @@
-// script.js
+// Constants and Variables
+const questionContainer = document.getElementById('question-container');
+const questionElement = document.getElementById('question');
+const optionButtons = document.getElementById('options').querySelectorAll('.option');
+const nextButton = document.getElementById('next-btn');
+const feedbackElement = document.getElementById('feedback');
+const scoreElement = document.getElementById('score');
+const funFactElement = document.getElementById('fun-fact');
 
-document.addEventListener('DOMContentLoaded', () => {
-    const questionContainer = document.getElementById('question-container');
-    const questionElement = document.getElementById('question');
-    const options = Array.from(document.querySelectorAll('.option'));
-    const nextButton = document.getElementById('next-btn');
-    const feedbackButton = document.getElementById('feedback-btn');
-    const completionGif = document.getElementById('completion-gif');
-    const questionImage = document.getElementById('question-image');
-    const funFactContainer = document.getElementById('fun-fact-container');
-    const feedbackForm = document.getElementById('feedback-form');
-    const feedbackMessage = document.getElementById('feedback');
-    const scoreElement = document.getElementById('score');
-    
-    let currentQuestionIndex = 0;
-    let score = 0;
-    let shuffledQuestions = [];
+let currentQuestionIndex = 0;
+let score = 0;
+let answerSelected = false;
 
-    const questions = [
-        {
-            question: "What is the name of Frodo's sword?",
-            options: [
-                { text: "Glamdring", correct: false },
-                { text: "Orcrist", correct: false },
-                { text: "Sting", correct: true },
-                { text: "Anduril", correct: false }
-            ],
-            image: "assets/images/sting.jpg",
-            funFact: "Sting glows blue when orcs are nearby."
-        },
-        {
-            question: "Who is the creator of the One Ring?",
-            options: [
-                { text: "Gandalf", correct: false },
-                { text: "Sauron", correct: true },
-                { text: "Saruman", correct: false },
-                { text: "Elrond", correct: false }
-            ],
-            image: "assets/images/onering.jpg",
-            funFact: "Sauron forged the One Ring in the fires of Mount Doom."
-        },
-        // Add more questions as needed
-    ];
+// Quiz data
+const questions = [
+    {
+        question: "What is the capital of Gondor?",
+        options: ["Minas Tirith", "Rohan", "Osgiliath", "Gondor City"],
+        answer: "Minas Tirith",
+        funFact: "Minas Tirith is also known as the White City and the City of Kings."
 
-    feedbackButton.addEventListener('click', () => {
-        window.location.href = 'feedback.html';
+    },
+    {
+        question: "Who is Frodo's uncle?",
+        options: ["Gandalf", "Saruman", "Bilbo Baggins", "Samwise Gamgee"],
+        answer: "Bilbo Baggins",
+        funFact: "Bilbo Baggins is a central character in 'The Hobbit' and 'The Lord of the Rings' series."
+    },
+    {
+        question: "What is the name of Gandalf's sword?",
+        options: ["Sting", "Glamdring", "Andúril", "Narsil"],
+        answer: "Glamdring",
+        funFact: "Glamdring was forged by the elves of Gondolin in the First Age."
+    },
+    {
+        question: "Who is the ruler of Rohan?",
+        options: ["Théoden", "Théodred", "Éowyn", "Éomer"],
+        answer: "Théoden",
+        funFact: "Théoden, son of Thengel, was the seventeenth King of Rohan, ruling for many years."
+    },
+    {
+        question: "What creature is Gollum?",
+        options: ["Hobbit", "Elf", "Dwarf", "Hobgoblin"],
+        answer: "Hobbit",
+        funFact: "Gollum, originally known as Sméagol, was a hobbit-like creature corrupted by the power of the One Ring."
+    },
+    {
+        question: "Who created the One Ring?",
+        options: ["Saruman", "Galadriel", "Elrond", "Sauron"],
+        answer: "Sauron",
+        funFact: "The One Ring was forged by the Dark Lord Sauron in the fires of Mount Doom."
+    },
+    {
+        question: "What is the name of the elf who aids Frodo when he almost died?",
+        options: ["Legolas", "Gimli", "Arwen", "Galadriel"],
+        answer: "Arwen",
+        funFact: "Arwen Evenstar, daughter of Elrond, was an elf who played a crucial role in the events of the War of the Ring."
+    },
+    {
+        question: "What is the name of Aragorn's sword?",
+        options: ["Sting", "Andúril", "Glamdring", "Narsil"],
+        answer: "Andúril",
+        funFact: "Andúril, also known as the Flame of the West, was reforged from the shards of Narsil and wielded by Aragorn as the rightful King of Gondor."
+    },
+    {
+        question: "Where do Frodo need to go to destroy the one ring?",
+        options: ["Minas Tirith", "Rivendell", "Lothlórien", "Mount Doom"],
+        answer: "Mount Doom",
+        funFact: "Mount Doom, located within the volcanic region of Mordor, was the only place where the One Ring could be destroyed."
+    },
+    {
+        question: "Who said: 'One does not simply walk into Mordor'?",
+        options: ["Gandalf", "Aragorn", "Boromir", "Frodo"],
+        answer: "Boromir",
+        funFact: "Boromir, son of Denethor, was a valiant warrior from Gondor who accompanied the Fellowship of the Ring on their journey."
+    }
+];
+
+// Feedback button
+const feedbackButton = document.getElementById('feedback-btn');
+feedbackButton.addEventListener('click', () => {
+    window.location.href = 'feedback.html';
+});
+
+// Start the quiz
+startQuiz();
+
+// Event listeners for option buttons
+optionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        if (!answerSelected) {
+            answerSelected = true;
+            checkAnswer(button.textContent);
+        }
     });
+});
 
-    function startGame() {
-        shuffledQuestions = questions.sort(() => Math.random() - 0.5);
-        currentQuestionIndex = 0;
-        score = 0;
-        questionContainer.classList.remove('hidden');
-        setNextQuestion();
-    }
-
-    function setNextQuestion() {
-        resetState();
-        showQuestion(shuffledQuestions[currentQuestionIndex]);
-    }
-
-    function showQuestion(question) {
-        questionElement.innerText = question.question;
-        questionImage.src = question.image;
-        questionImage.alt = question.question;
-        options.forEach((button, index) => {
-            button.innerText = question.options[index].text;
-            button.dataset.correct = question.options[index].correct;
-            button.addEventListener('click', selectAnswer);
-        });
-    }
-
-    function resetState() {
-        while (options.firstChild) {
-            options.removeChild(options.firstChild);
-        }
-        nextButton.classList.add('hidden');
-        funFactContainer.classList.add('hidden');
-    }
-
-    function selectAnswer(e) {
-        const selectedButton = e.target;
-        const correct = selectedButton.dataset.correct === 'true';
-        if (correct) {
-            score++;
-        }
-        Array.from(options).forEach(button => {
-            setStatusClass(button, button.dataset.correct === 'true');
-        });
-        if (shuffledQuestions.length > currentQuestionIndex + 1) {
-            nextButton.classList.remove('hidden');
-        } else {
-            showCompletionGif();
-        }
-        showFunFact(shuffledQuestions[currentQuestionIndex]);
-    }
-
-    function setStatusClass(element, correct) {
-        clearStatusClass(element);
-        if (correct) {
-            element.classList.add('correct');
-        } else {
-            element.classList.add('incorrect');
-        }
-    }
-
-    function clearStatusClass(element) {
-        element.classList.remove('correct');
-        element.classList.remove('incorrect');
-    }
-
-    function showFunFact(question) {
-        funFactContainer.innerText = question.funFact;
-        funFactContainer.classList.remove('hidden');
-    }
-
-    function showCompletionGif() {
-        questionContainer.classList.add('hidden');
-        completionGif.classList.remove('hidden');
-    }
-
-    nextButton.addEventListener('click', () => {
+// Event listener for next button
+nextButton.addEventListener('click', () => {
+    if (answerSelected) {
+        answerSelected = false;
         currentQuestionIndex++;
-        setNextQuestion();
-    });
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            endQuiz();
+        }
+    }
+});
 
-    startGame();
+// Function to start the quiz
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.style.display = 'none';
+    scoreElement.innerText = `Score: ${score}`;
+    displayQuestion();
+}
+
+// Function to display the current question
+function displayQuestion() {
+    const question = questions[currentQuestionIndex];
+    questionElement.innerText = question.question;
+
+    // Set the image source based on the current question index
+    const questionImage = document.getElementById('question-image');
+    questionImage.src = `assets/images/question${currentQuestionIndex + 1}.jpg`;
+
+    optionButtons.forEach((button, index) => {
+        button.innerText = question.options[index];
+        button.classList.remove('correct');
+        button.classList.remove('incorrect');
+    });
+    feedbackElement.innerText = '';
+    funFactElement.innerText = '';
+}
+
+// Function to check the answer
+function checkAnswer(answer) {
+    const correctAnswer = questions[currentQuestionIndex].answer;
+    if (answer === correctAnswer) {
+        score++;
+        scoreElement.innerText = `Score: ${score}`;
+        feedbackElement.innerText = 'Correct!';
+    } else {
+        feedbackElement.innerText = `Incorrect. The correct answer is "${correctAnswer}".`;
+    }
+    funFactElement.innerText = questions[currentQuestionIndex].funFact;
+    optionButtons.forEach(button => {
+        if (button.textContent === correctAnswer) {
+            button.classList.add('correct');
+        } else if (button.textContent === answer) {
+            button.classList.add('incorrect');
+        }
+    });
+    nextButton.style.display = 'block';
+}
+
+// Function to end the quiz
+function endQuiz() {
+    questionElement.innerText = 'Quiz completed!';
+    optionButtons.forEach(button => button.style.display = 'none');
+    feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
+    document.getElementById('completion-gif').classList.remove('hidden');
+    document.getElementById('question-container').style.display = 'none';
+    document.getElementById('options').style.display = 'none';
+    document.getElementById('fun-fact-container').style.display = 'none';
+    document.getElementById('question-image').style.display = 'none';
+    document.getElementById('completion-gif-container').classList.remove('hidden');
+}
+
+// Select the feedback form
+const feedbackForm = document.getElementById('feedback-form');
+
+// Event listener for form submission
+feedbackForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    window.location.href = 'thankyou.html';
 });
