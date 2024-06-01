@@ -64,6 +64,19 @@ header {
     text-align: center;
 }
 
+
+
+/* feedback form */
+
+.feedback-form {
+    font-family: 'Sedan', sans-serif;
+    padding-top: 0.625rem;
+    margin: 5rem auto;
+    max-width: 70%;
+    text-align: center;
+}
+
+
 /* Main content area */
 main {
     padding: 20px;
