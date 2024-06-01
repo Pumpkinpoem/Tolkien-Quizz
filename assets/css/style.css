@@ -1,6 +1,6 @@
 /* styles.css */
 
-/* hidden gif */
+/* Hidden gif */
 .hidden {
     display: none;
 }
@@ -9,8 +9,6 @@
     text-align: center;
     margin-top: 20px;
 }
-
-
 
 /* Centered image with padding and responsive design */
 .question-image {
@@ -24,19 +22,18 @@
 .thank-you-container {
     display: flex;
     justify-content: center;
-    align-items: center; 
-    height: 100vh; 
+    align-items: center;
+    height: 100vh;
 }
 
 .centered {
-    text-align: center; 
+    text-align: center;
 }
 
 .centered img {
     display: block;
     margin-top: 20px;
 }
-
 
 /* Body background color */
 body {
@@ -54,7 +51,7 @@ body, h1, p, button {
 /* Header styling */
 header {
     background-color: #2c3e50;
-    color: #fff; 
+    color: #fff;
     padding: 20px;
     text-align: center;
 }
@@ -66,160 +63,52 @@ main {
 
 /* Footer styling */
 footer {
-    background-color: #2c3e50; 
-    color: #fff; 
+    background-color: #2c3e50;
+    color: #fff;
     padding: 20px;
     text-align: center;
     margin-top: auto;
 }
 
-/* Footer link styling */
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Footer link hover effect */
-footer a:hover {
-    color: #c5a47e;
-}
-
-
-
-/* Button styling */
-button {
-    background-color: #c5a47e; 
-    color: #fff; 
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #8b9b83; 
-}
-
-/* Question and answer container */
-.question-container {
-    background-color: #fff; 
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-
-}
-
-/* Button container */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-}
-
-
-/* Quiz button styling */
-.quiz-button {
-    background-color: #c5a47e; 
-    color: #fff; 
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.quiz-button:hover {
-    background-color: #8b9b83; 
-}
-
-
-/* Feedback form container */
-.feedback-form-container {
-    max-width: 400px;
-    margin: 0 auto; 
-    background-color: #2c3e50; 
-    padding: 20px; 
-    border-radius: 10px;
-}
-
-/* Feedback form styling */
-.feedback-form {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f9f9f9; 
-    border-radius: 10px; 
-}
-
-.feedback-form input[type="text"],
-.feedback-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 20px 0;
-    box-sizing: border-box;
-}
-
-.feedback-form input[type="submit"] {
-    background-color: #c5a47e; 
-    color: #fff; 
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.feedback-form input[type="submit"]:hover {
-    background-color: #8b9b83; 
-}
-
-
 /* Back button styling */
 .back-button {
-    background-color: #c5a47e; 
-    color: #fff; 
-    border: none;
+    display: inline-block;
+    margin-top: 10px;
     padding: 10px 20px;
-    cursor: pointer;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
 .back-button:hover {
-    background-color: #8b9b83; 
+    background-color: #34495e;
 }
 
-/* Media query for smaller screens */
-@media screen and (max-width: 768px) {
-    /* Adjustments for smaller screens */
-    .question-container {
-        padding: 10px;
+/* Social media icons */
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media a {
+    color: #fff;
+    margin: 0 10px;
+}
+
+.social-media a:hover {
+    color: #ecf0f1;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 600px) {
+    header, footer {
+        text-align: center;
     }
-    /* Adjustments for smaller buttons */
-    .quiz-button {
-        padding: 8px 16px;
-        margin: 8px;
+    .social-media {
+        display: flex;
+        justify-content: center;
     }
-    /* Adjustments for smaller feedback form */
-    .feedback-form {
-        max-width: 300px;
-        padding: 20px;
-    }
-    .feedback-form input[type="text"],
-    .feedback-form textarea {
-        padding: 10px;
-        margin: 5px 0 20px 0;
-        box-sizing: border-box;
-    }
-    .feedback-form input[type="submit"] {
-        padding: 10px 20px;
+    .social-media a {
+        margin: 0 5px;
     }
 }
