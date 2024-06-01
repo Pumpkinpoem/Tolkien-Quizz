@@ -10,6 +10,15 @@
     margin-top: 20px;
 }
 
+.thank-you-gif {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow-x: hidden;
+}
+
 /* Centered image with padding and responsive design */
 .question-image {
     display: block;
@@ -20,10 +29,8 @@
 }
 
 .thank-you-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    display: center;
+    margin-top: 20px;
 }
 
 .centered {
@@ -102,15 +109,22 @@ footer {
 }
 
 /* Responsive design for small screens */
-@media (max-width: 600px) {
-    header, footer {
-        text-align: center;
+@media screen and (min-width: 768px) {
+    nav {
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
+        padding-right: 1rem;
     }
-    .social-media {
-        display: flex;
-        justify-content: center;
+    .thank-you-gif {
+        max-width: 100vw;
     }
-    .social-media a {
-        margin: 0 5px;
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    #menu a:hover {
+        border-bottom: 1px solid #3a3a3a;
     }
 }
