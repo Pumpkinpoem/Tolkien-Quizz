@@ -162,12 +162,13 @@ function endQuiz() {
     optionButtons.forEach(button => button.style.display = 'none');
     feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
     document.getElementById('completion-gif').classList.remove('hidden');
-    document.getElementById('question-container').style.display = 'none';
+    questionContainer.style.display = 'none'; 
     document.getElementById('options').style.display = 'none';
     document.getElementById('fun-fact-container').style.display = 'none';
     document.getElementById('question-image').style.display = 'none';
     document.getElementById('completion-gif-container').classList.remove('hidden');
 }
+
 
 // Select the feedback form
 const feedbackForm = document.getElementById('feedback-form');
