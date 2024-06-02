@@ -76,11 +76,6 @@ const questions = [
     }
 ];
 
-// Feedback button
-const feedbackButton = document.getElementById('feedback-btn');
-feedbackButton.addEventListener('click', () => {
-    window.location.href = 'feedback.html';
-});
 
 // Start the quiz
 startQuiz();
