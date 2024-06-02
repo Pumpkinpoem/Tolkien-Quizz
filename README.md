@@ -73,7 +73,6 @@ Describe the testing process for your project here. Include sections such as fun
 | Resizing the browser window                        | Ensures the quiz layout remains responsive and maintains usability. |    pass       |
 | Completing the quiz without selecting any answers  | Prevents progression and prompts the user to select an answer.   |      pass     |
 | Refreshing the page during the quiz               | Restarts the quiz from the beginning.                            |       pass    |
-| Clicking "Previous" button during the quiz         | Navigates to the previous question if available.                 |        fail   |
 | Clicking on an answer option                       | Highlights the selected option and deselects others.              |        pass   |
 | Attempting to move to the next question without selecting an answer | Prompts the user to select an answer before proceeding.   |      fail     |
 | Clicking "Give Feedback" button without answering any questions | Displays a message informing the user to complete the quiz first. |     pass      |
@@ -91,9 +90,10 @@ Include screenshots or summaries of Lighthouse test results for your project.
 
 - HTML: index
   - No errors were found when passing through the official W3C validator.
+ - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2F
+ - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Ffeedback.html
+ - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Fthankyou.html
 
-- HTML: page 2
-  - No errors were found when passing through the official W3C validator.
 
 - CSS:
   - No errors were found when passing through the official Jigsaw validator.
