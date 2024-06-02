@@ -2,7 +2,7 @@
 
 [Tolkien Quiz](https://pumpkinpoem.github.io/Tolkien-Quizz/) is a description of your project. Add a brief overview here to introduce what your project is about.
 
-![Responsive Mockup](assets/readme/responsive.png)
+![Responsive Mockup](assets/readme/responsive.PNG)
 
 ## Description
 
@@ -15,17 +15,17 @@ Welcome to Tolkien Quiz, the ultimate trivia experience for fans of J.R.R. Tolki
   - Featured on all pages, the fully responsive navigation bar includes links to the Home page and Feedback page. It is consistent across all pages to ensure easy navigation.
   - This section enables users to navigate seamlessly across all devices without needing to rely on the back button.
 
-![Navigation Bar](assets/readme/header.png)
+![Navigation Bar](assets/readme/nav.PNG)
 
 - **Feedback:**
   - Allows users to sign up for One Dice's email list and choose a welcome gift from two options of dice sets.
 
-![Feedback](assets/readme/feedback.png)
+![Feedback](assets/readme/feedback.PNG)
 
 - **Footer:**
   - The footer section includes links to One Dice's social media profiles, allowing users to connect with the cafe on various platforms.
 
-![Footer Section](assets/readme/footer.png)
+![Footer Section](assets/readme/footer.PNG)
 
 
 ## Visual Features
@@ -84,23 +84,24 @@ Describe the testing process for your project here. Include sections such as fun
 
 ### Lighthouse Testing
 
-Include screenshots or summaries of Lighthouse test results for your project.
+![Lighthouse Report](assets/readme/lighthouse.PNG)
 
 ### Validator Testing
 
 - HTML: index
   - No errors were found when passing through the official W3C validator.
- - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2F
- - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Ffeedback.html
- - https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Fthankyou.html
+ - [link to  index validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2F)
+ - [link to feedback validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Ffeedback.html)
+ - [link to thank you validation](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Fthankyou.html)
 
 
 - CSS:
   - No errors were found when passing through the official Jigsaw validator.
+  - [link to validation](http://jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fpumpkinpoem.github.io%2FTolkien-Quizz%2Findex.html&usermedium=all&vextwarning=&warning=1)
 
 ### Unresolved Bugs
 
-Describe any unresolved bugs in your project.
+- None
 
 ## Deployment
 
