@@ -6,7 +6,6 @@
 }
 
 #completion-gif-container {
-    text-align: center;
     margin-top: 20px;
 }
 
@@ -19,6 +18,26 @@
     overflow-x: hidden;
 }
 
+/* centered elements*/
+#completion-gif-container,
+.thank-you-container,
+.question-image {
+    text-align: center;
+}
+.next-btn {
+    font-family: 'Sedan', sans-serif;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 5px; 
+}
 /* Centered image with padding and responsive design */
 .question-image {
     display: block;
@@ -26,6 +45,8 @@
     padding: 20px;
     max-width: 100%;
     height: auto;
+    margin-top: 20px;
+    align-items: center;
 }
 
 .thank-you-container {
@@ -42,13 +63,24 @@
     margin-top: 20px;
 }
 
+.option {
+    font-family: 'Sedan', sans-serif;
+    display: inline-block; /* Change display to inline-block */
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px; 
+}
+
 /* Body background color */
 body {
     background-color: #f4f4f4;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
 }
 
 body, h1, p, button {
@@ -86,9 +118,14 @@ nav {
 }
 
 
+.feedback-text {
+    margin: 20px;
+}
+
 /* Main content area */
 main {
     padding: 20px;
+    text-align: center;
 }
 
 /* Footer styling */
@@ -98,6 +135,8 @@ footer {
     padding: 20px;
     text-align: center;
     margin-top: auto;
+    width: 100%;
+    align-items: center;
 }
 
 /* nav button styling */
@@ -106,20 +145,20 @@ footer {
     display: inline-block;
     padding: 10px 20px;
     background-color: #DAA520;
-    color: black; /* White text */
+    color: black;
     text-align: center;
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Rounded corners */
-    border: none; /* Remove border */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
 .nav-button:hover {
-    background-color: #C19217; /* Darker green on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow on hover */
+    background-color: #C19217;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
 }
 
 /* Social media icons */
