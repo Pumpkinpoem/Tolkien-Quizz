@@ -169,11 +169,10 @@ function endQuiz() {
 
 // Select the feedback form
 const feedbackForm = document.getElementById('feedback-form');
-
-// Event listener for form submission
-feedbackForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    window.location.href = 'thankyou.html';
-});
-
+if (feedbackForm) 
+    feedbackForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        window.location.href = 'thankyou.html';
+    });
+    
 });
