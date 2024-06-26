@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function() {
+
 // Constants and Variables
 const questionContainer = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
@@ -172,4 +174,6 @@ const feedbackForm = document.getElementById('feedback-form');
 feedbackForm.addEventListener('submit', function (event) {
     event.preventDefault();
     window.location.href = 'thankyou.html';
+});
+
 });
