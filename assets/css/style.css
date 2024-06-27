@@ -178,19 +178,25 @@ footer {
 }
 
 /* Responsive design for small screens */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 320px) {
     nav {
         display: block;
         position: relative;
         box-shadow: none;
         width: fit-content;
         padding-right: 1rem;
+        align-self: center;
     }
     .thank-you-gif {
         max-width: 100vw;
     }
     header, footer {
-        padding: 3rem; 
+        padding: 3rem;
+        align-self: center;
+        
+    }
+    body {
+        align-items: center;
     }
 }
 
