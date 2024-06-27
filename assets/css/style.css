@@ -1,5 +1,9 @@
 /* styles.css */
 
+/* * vild card styling */
+* {
+    box-sizing: border-box
+    }
 /* Hidden gif */
 .hidden {
     display: none;
@@ -58,10 +62,6 @@
     text-align: center;
 }
 
-.centered img {
-    display: block;
-    margin-top: 20px;
-}
 
 .option {
     font-family: 'Sedan', sans-serif;
@@ -179,7 +179,20 @@ footer {
 
 /* Responsive design for small screens */
 @media screen and (min-width: 320px) {
-    nav {
+
+    .question-image {
+        max-width: 100%;
+        display: block;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
+        padding: auto;
+        align-self: center;
+        margin-right: auto;
+    }
+
+
+    nav, header {
         display: block;
         position: relative;
         box-shadow: none;
@@ -188,15 +201,19 @@ footer {
         align-self: center;
     }
     .thank-you-gif {
-        max-width: 100vw;
+        max-width: 100%;
     }
-    header, footer {
+    footer {
         padding: 3rem;
         align-self: center;
+        position: relative;
+        box-shadow: none;
+        width: fit-content;
         
     }
     body {
-        align-items: center;
+        margin: auto;
+        max-width: 100%;
     }
 }
 
