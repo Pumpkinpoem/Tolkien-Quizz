@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Constants and Variables
 const questionContainer = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
-const optionButtons = document.getElementById('options').querySelectorAll('.option');
+const optionButtons = document.querySelectorAll('#options .option');
 const nextButton = document.getElementById('next-btn');
 const feedbackElement = document.getElementById('feedback');
 const scoreElement = document.getElementById('score');

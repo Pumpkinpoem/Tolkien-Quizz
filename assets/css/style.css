@@ -161,6 +161,16 @@ footer {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
 }
 
+/* Touch-friendly enhancements */
+.option, .next-btn {
+    padding: 15px 25px;
+    font-size: 18px;
+}
+.nav-button {
+    padding: 12px 18px;
+    font-size: 16px;
+}
+
 /* Social media icons */
 .social-media {
     display: flex;
@@ -228,5 +238,10 @@ footer {
 @media screen and (min-width: 992px) {
     #menu a:hover {
         border-bottom: 1px solid #3a3a3a;
+        margin-top: 0; 
+        margin-right: auto; 
+        margin-bottom: 0; 
+        margin-left: auto; 
     }
+    
 }
