@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Constants and Variables
-    const questionContainer = document.getElementById('question-container');
     const questionElement = document.getElementById('question');
-    const optionButtons = document.getElementById('options').querySelectorAll('.option');
+    const optionsContainer = document.getElementById('options');
     const nextButton = document.getElementById('next-btn');
     const feedbackElement = document.getElementById('feedback');
     const scoreElement = document.getElementById('score');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const questionImage = document.getElementById('question-image');
     const completionGifContainer = document.getElementById('completion-gif-container');
     const completionGif = document.getElementById('completion-gif');
-    
+
     let currentQuestionIndex = 0;
     let score = 0;
     let answerSelected = false;
@@ -79,83 +78,87 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // Start the quiz
-    startQuiz();
+    // Check if optionsContainer exists before accessing options
+    if (optionsContainer) {
+        const optionButtons = optionsContainer.querySelectorAll('.option');
 
-    // Event listeners for option buttons
-    optionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            if (!answerSelected) {
-                answerSelected = true;
-                checkAnswer(button.textContent);
-            }
-        });
-    });
+        // Start the quiz
+        startQuiz();
 
-    // Event listener for next button
-    nextButton.addEventListener('click', () => {
-        if (answerSelected) {
-            answerSelected = false;
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                displayQuestion();
-            } else {
-                endQuiz();
-            }
-        }
-    });
-
-    // Function to start the quiz
-    function startQuiz() {
-        currentQuestionIndex = 0;
-        score = 0;
-        nextButton.style.display = 'none';
-        scoreElement.innerText = `Score: ${score}`;
-        displayQuestion();
-    }
-
-    // Function to display the current question
-    function displayQuestion() {
-        const question = questions[currentQuestionIndex];
-        questionElement.innerText = question.question;
-        questionImage.src = `assets/images/question${currentQuestionIndex + 1}.jpg`;
-
-        optionButtons.forEach((button, index) => {
-            button.innerText = question.options[index];
-            button.classList.remove('correct', 'incorrect');
-        });
-        feedbackElement.innerText = '';
-        funFactElement.innerText = '';
-    }
-
-    // Function to check the answer
-    function checkAnswer(answer) {
-        const correctAnswer = questions[currentQuestionIndex].answer;
-        if (answer === correctAnswer) {
-            score++;
-            feedbackElement.innerText = 'Correct!';
-        } else {
-            feedbackElement.innerText = `Incorrect. The correct answer is "${correctAnswer}".`;
-        }
-        scoreElement.innerText = `Score: ${score}`;
-        funFactElement.innerText = questions[currentQuestionIndex].funFact;
+        // Event listeners for option buttons
         optionButtons.forEach(button => {
-            button.classList.toggle('correct', button.textContent === correctAnswer);
-            button.classList.toggle('incorrect', button.textContent === answer);
+            button.addEventListener('click', () => {
+                if (!answerSelected) {
+                    answerSelected = true;
+                    checkAnswer(button.textContent);
+                }
+            });
         });
-        nextButton.style.display = 'block';
-    }
 
-    // Function to end the quiz
-    function endQuiz() {
-        questionElement.innerText = 'Quiz completed!';
-        optionButtons.forEach(button => button.style.display = 'none');
-        feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
-        completionGif.classList.remove('hidden');
-        questionContainer.style.display = 'none';
-        document.getElementById('options').style.display = 'none';
-        funFactContainer.style.display = 'none';
-        questionImage.style.display = 'none';
-        completionGifContainer.classList.remove('hidden');
+        // Event listener for next button
+        nextButton.addEventListener('click', () => {
+            if (answerSelected) {
+                answerSelected = false;
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    displayQuestion();
+                } else {
+                    endQuiz();
+                }
+            }
+        });
+
+        // Function to start the quiz
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            nextButton.style.display = 'none';
+            scoreElement.innerText = `Score: ${score}`;
+            displayQuestion();
+        }
+
+        // Function to display the current question
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            questionElement.innerText = question.question;
+            questionImage.src = `assets/images/question${currentQuestionIndex + 1}.jpg`;
+
+            optionButtons.forEach((button, index) => {
+                button.innerText = question.options[index];
+                button.classList.remove('correct', 'incorrect');
+            });
+            feedbackElement.innerText = '';
+            funFactElement.innerText = '';
+        }
+
+        // Function to check the answer
+        function checkAnswer(answer) {
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            if (answer === correctAnswer) {
+                score++;
+                feedbackElement.innerText = 'Correct!';
+            } else {
+                feedbackElement.innerText = `Incorrect. The correct answer is "${correctAnswer}".`;
+            }
+            scoreElement.innerText = `Score: ${score}`;
+            funFactElement.innerText = questions[currentQuestionIndex].funFact;
+            optionButtons.forEach(button => {
+                button.classList.toggle('correct', button.textContent === correctAnswer);
+                button.classList.toggle('incorrect', button.textContent === answer);
+            });
+            nextButton.style.display = 'block';
+        }
+
+        // Function to end the quiz
+        function endQuiz() {
+            questionElement.innerText = 'Quiz completed!';
+            optionButtons.forEach(button => button.style.display = 'none');
+            feedbackElement.innerText = `Your final score is ${score}/${questions.length}.`;
+            completionGif.classList.remove('hidden');
+            optionsContainer.style.display = 'none';
+            funFactElement.style.display = 'none';
+            questionImage.style.display = 'none';
+            completionGifContainer.classList.remove('hidden');
+        }
     }
 });
