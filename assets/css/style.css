@@ -117,19 +117,64 @@ nav {
     padding: 20px;
 }
 
-/* feedback form */
-
-.feedback-form {
-    font-family: 'Sedan', sans-serif;
-    padding-top: 0.625rem;
-    margin: 5rem auto;
+/* Feedback form container */
+.feedback-form-container {
+    margin: 20px auto;
     max-width: 70%;
-    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Feedback form */
+.feedback-form {
+    font-family: 'Sedan', sans-serif;
+    text-align: left; /* Align form elements to the left */
+    margin-top: 20px;
+}
 
-.feedback-text {
-    margin: 20px;
+/* Form labels */
+.feedback-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Form inputs */
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: calc(100% - 20px); /* Adjust width to fit inside padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+/* Form textarea */
+.feedback-form textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+/* Submit button */
+.feedback-form input[type="submit"] {
+    font-family: 'Sedan', sans-serif;
+    background-color: #DAA520;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form input[type="submit"]:hover {
+    background-color: #45a049;
 }
 
 /* Main content area */
