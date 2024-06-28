@@ -4,13 +4,20 @@
 * {
     box-sizing: border-box
     }
+    
 /* Hidden gif */
 .hidden {
     display: none;
 }
 
 #completion-gif-container {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow-x: hidden;
 }
 
 .thank-you-gif {
@@ -81,6 +88,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
 }
 
 body, h1, p, button {
@@ -94,6 +102,8 @@ header {
     color: #fff;
     padding: 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 
@@ -134,9 +144,9 @@ footer {
     color: #fff;
     padding: 20px;
     text-align: center;
-    margin-top: auto;
     width: 100%;
-    align-items: center;
+    box-sizing: border-box;
+    margin-top: auto;
 }
 
 /* nav button styling */
@@ -195,7 +205,6 @@ footer {
         display: block;
         position: relative;
         box-shadow: none;
-        width: fit-content;
         padding: auto;
         align-self: center;
         margin-right: auto;
@@ -206,7 +215,6 @@ footer {
         display: block;
         position: relative;
         box-shadow: none;
-        width: fit-content;
         padding-right: 1rem;
         align-self: center;
     }
@@ -218,21 +226,36 @@ footer {
         align-self: center;
         position: relative;
         box-shadow: none;
-        width: fit-content;
         
     }
     body {
         margin: auto;
         max-width: 100%;
     }
+     /* Adjust padding for header and footer */
+     header, footer {
+        padding: 15px; /* Adjusted for smaller screens */
+    }
 }
 
 /* medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .option, .next-btn, .nav-button {
+        padding: 20px 30px;
+        font-size: 20px;
+    }
+
+    .nav-button {
+        padding: 15px 25px;
+        font-size: 18px;
+    }
+
+    /* Adjust padding for header and footer */
     header, footer {
-        padding: 2.75rem; 
+        padding: 20px; /* Adjusted for medium screens */
     }
 }
+
 
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
