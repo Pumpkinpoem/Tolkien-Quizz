@@ -47,7 +47,6 @@ Welcome to Tolkien Quiz, the ultimate trivia experience for fans of J.R.R. Tolki
 
 The colors chosen for Tolkien Quiz are inspired by the rich and vibrant imagery found throughout J.R.R. Tolkien's works:
 
-- **Forest Green**: Evoking the lush landscapes of Middle-earth's forests and meadows.
 - **Golden Yellow**: Representing the warmth of friendship, the light of hope, and the allure of adventure.
 - **Light Blue**: Reflecting the vivid nature of Tolkien's storytelling and the connection to the natural world.
 
